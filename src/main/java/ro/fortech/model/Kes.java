@@ -2,7 +2,7 @@ package ro.fortech.model;
 
 import java.math.BigDecimal;
 
-public class Kev {
+public class Kes {
     private String kes_sps;
     private String kes_askz;
     private String kes_vakz;

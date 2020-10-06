@@ -1,16 +1,13 @@
 package ro.fortech.model;
 
-import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
-import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
-import org.springframework.data.cassandra.repository.AllowFiltering;
 
 import java.math.BigDecimal;
 
 @Table("table_kem")
-public class KevKem extends Kev {
+public class KesKem extends Kes {
     @PrimaryKey("kes_kem")
     private String kesKem;
     @Column("kes_sda")

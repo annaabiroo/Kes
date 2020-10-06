@@ -9,36 +9,35 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ro.fortech.dto.DateRangeDto;
-import ro.fortech.model.Kev;
-import ro.fortech.model.KevKem;
-import ro.fortech.service.KevKemService;
+import ro.fortech.model.KesKem;
+import ro.fortech.service.KesKemService;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/kevtable")
-public class KevController {
-    private final KevKemService kevKemService;
+@RequestMapping("/kestable")
+public class KesController {
+    private final KesKemService kesKemService;
 
     @Autowired
-    public KevController(KevKemService kevKemService) {
-        this.kevKemService = kevKemService;
+    public KesController(KesKemService kesKemService) {
+        this.kesKemService = kesKemService;
     }
 
     @GetMapping("/{kes_kem}")
-    public ResponseEntity<List<KevKem>> getByKesKem(@PathVariable String kes_kem) {
-        return new ResponseEntity<>(kevKemService.getAllByKesKem(kes_kem), HttpStatus.OK);
+    public ResponseEntity<List<KesKem>> getByKesKem(@PathVariable String kes_kem) {
+        return new ResponseEntity<>(kesKemService.getAllByKesKem(kes_kem), HttpStatus.OK);
     }
 
     @GetMapping("/daterange")
-    public ResponseEntity<List<KevKem>> getKevByKesKemAndKesSdaAndKesSdb(@RequestBody DateRangeDto dateRangeDTO) {
+    public ResponseEntity<List<KesKem>> getKevByKesKemAndKesSdaAndKesSdb(@RequestBody DateRangeDto dateRangeDTO) {
         if (dateRangeDTO.getKesKem().isEmpty()) {
-            return new ResponseEntity<>(kevKemService.getAllByKesSdaAfterAndKesSdbBefore(
+            return new ResponseEntity<>(kesKemService.getAllByKesSdaAfterAndKesSdbBefore(
                     dateRangeDTO.getKesSda(),
                     dateRangeDTO.getKesSdb()), HttpStatus.OK);
         }
         else {
-            return new ResponseEntity<>(kevKemService.getAllByKesKemAndKesSdaAfterAndKesSdbBefore(
+            return new ResponseEntity<>(kesKemService.getAllByKesKemAndKesSdaAfterAndKesSdbBefore(
                     dateRangeDTO.getKesKem(),
                     dateRangeDTO.getKesSda(),
                     dateRangeDTO.getKesSdb()), HttpStatus.OK);
