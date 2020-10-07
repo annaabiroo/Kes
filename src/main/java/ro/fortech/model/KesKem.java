@@ -11,9 +11,9 @@ public class KesKem extends Kes {
     @PrimaryKey("kes_kem")
     private String kesKem;
     @Column("kes_sda")
-    private BigDecimal kesSda;
+    private String kesSda;
     @Column("kes_sdb")
-    private BigDecimal kesSdb;
+    private String kesSdb;
 
     public String getKesKem() {
         return kesKem;
@@ -23,19 +23,19 @@ public class KesKem extends Kes {
         this.kesKem = kesKem;
     }
 
-    public BigDecimal getKesSda() {
+    public String getKesSda() {
         return kesSda;
     }
 
-    public void setKesSda(BigDecimal kesSda) {
+    public void setKesSda(String kesSda) {
         this.kesSda = kesSda;
     }
 
-    public BigDecimal getKesSdb() {
+    public String getKesSdb() {
         return kesSdb;
     }
 
-    public void setKesSdb(BigDecimal kesSdb) {
+    public void setKesSdb(String kesSdb) {
         this.kesSdb = kesSdb;
     }
 }

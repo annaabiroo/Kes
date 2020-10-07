@@ -32,15 +32,15 @@ public class KesController {
     @GetMapping("/daterange")
     public ResponseEntity<List<KesKem>> getKevByKesKemAndKesSdaAndKesSdb(@RequestBody DateRangeDto dateRangeDTO) {
         if (dateRangeDTO.getKesKem().isEmpty()) {
-            return new ResponseEntity<>(kesKemService.getAllByKesSdaAfterAndKesSdbBefore(
-                    dateRangeDTO.getKesSda(),
-                    dateRangeDTO.getKesSdb()), HttpStatus.OK);
+            return new ResponseEntity<>(kesKemService.getAllByKesSdaInRange(
+                    dateRangeDTO.getBiggerThan(),
+                    dateRangeDTO.getSmallerThan()), HttpStatus.OK);
         }
         else {
-            return new ResponseEntity<>(kesKemService.getAllByKesKemAndKesSdaAfterAndKesSdbBefore(
+            return new ResponseEntity<>(kesKemService.getAllByKesKemAndKesSdaInRange(
                     dateRangeDTO.getKesKem(),
-                    dateRangeDTO.getKesSda(),
-                    dateRangeDTO.getKesSdb()), HttpStatus.OK);
+                    dateRangeDTO.getBiggerThan(),
+                    dateRangeDTO.getSmallerThan()), HttpStatus.OK);
         }
     }
 }

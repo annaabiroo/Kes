@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 public class DateRangeDto {
     private String kesKem;
-    private BigDecimal kesSda;
-    private BigDecimal kesSdb;
+    private String biggerThan;
+    private String smallerThan;
 
     public String getKesKem() {
         return kesKem;
@@ -15,19 +15,19 @@ public class DateRangeDto {
         this.kesKem = kesKem;
     }
 
-    public BigDecimal getKesSda() {
-        return kesSda;
+    public String getBiggerThan() {
+        return biggerThan;
     }
 
-    public void setKesSda(BigDecimal kesSda) {
-        this.kesSda = kesSda;
+    public void setBiggerThan(String biggerThan) {
+        this.biggerThan = biggerThan;
     }
 
-    public BigDecimal getKesSdb() {
-        return kesSdb;
+    public String getSmallerThan() {
+        return smallerThan;
     }
 
-    public void setKesSdb(BigDecimal kesSdb) {
-        this.kesSdb = kesSdb;
+    public void setSmallerThan(String smallerThan) {
+        this.smallerThan = smallerThan;
     }
 }
