@@ -1,10 +1,12 @@
 package ro.fortech.dto;
 
-import java.math.BigDecimal;
+import javax.validation.constraints.NotBlank;
 
 public class DateRangeDto {
     private String kesKem;
+    @NotBlank
     private String biggerThan;
+    @NotBlank
     private String smallerThan;
 
     public String getKesKem() {

@@ -12,6 +12,7 @@ import ro.fortech.dto.DateRangeDto;
 import ro.fortech.model.KesKem;
 import ro.fortech.service.KesKemService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -30,7 +31,7 @@ public class KesController {
     }
 
     @GetMapping("/daterange")
-    public ResponseEntity<List<KesKem>> getKevByKesKemAndKesSdaAndKesSdb(@RequestBody DateRangeDto dateRangeDTO) {
+    public ResponseEntity<List<KesKem>> getKevByKesKemAndKesSdaAndKesSdb(@RequestBody @Valid DateRangeDto dateRangeDTO) {
         if (dateRangeDTO.getKesKem().isEmpty()) {
             return new ResponseEntity<>(kesKemService.getAllByKesSdaInRange(
                     dateRangeDTO.getBiggerThan(),
