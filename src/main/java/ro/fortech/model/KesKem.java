@@ -12,6 +12,7 @@ public class KesKem extends Kes {
     private String kesSda;
     @Column("kes_sdb")
     private String kesSdb;
+    //public static final String TABLE_NAME = "table_kem";
 
     public String getKesKem() {
         return kesKem;
